@@ -21,7 +21,7 @@ export const AuthenticationError =  class AuthenticationError extends CodedError
 };
 
 // success response
-export const responseHandler = (ctx) => {
+export const responseHandler = (ctx: { result: undefined; type: string; body: { code: number; data: any; }; log: { info: (arg0: string) => void; }; }) => {
   if (ctx.result !== undefined) {
     ctx.type = 'json';
     ctx.body = {
@@ -34,8 +34,8 @@ export const responseHandler = (ctx) => {
 };
 
 // 这个middleware处理在其它middleware中出现的异常
-export const errorHandler = (ctx, next) => {
-  return next().catch(err => {
+export const errorHandler = (ctx: { log: { error: (arg0: any) => void; }; body: { code: any; message: any; }; }, next: () => Promise<any>) => {
+  return next().catch((err: { code: null; stack: any; message: string; }) => {
     if (err.code == null) {
       ctx.log.error(err.stack);
     }

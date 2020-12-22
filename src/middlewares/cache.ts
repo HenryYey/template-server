@@ -108,7 +108,7 @@ export class Cache {
 
 const myCache = new Cache();
 
-export const cacheMiddleware = async (ctx, next) => {
+export const cacheMiddleware = async (ctx: { cache: Cache; }, next: () => any) => {
   ctx.cache = myCache;
   return next();
 };

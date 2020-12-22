@@ -7,6 +7,7 @@ export const mysql = {
   options: {
     host: 'localhost',
     port: 3306,
+    dialect: 'mysql',
     timezone: '+08:00',
     define: {
       // 字段以下划线（_）来分割（默认是驼峰命名风格）  

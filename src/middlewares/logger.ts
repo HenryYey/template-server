@@ -141,12 +141,12 @@ export class Logger {
    */
   public getLoggers = async (ctx: Koa.Context, next: () => Promise<void>) => {
     ctx.log = {};
-    ctx.log.date = (text) => this.logger.info(text);
-    ctx.log.console = (text) => this.consoleLogger.info(text);
-    ctx.log.error = (text) => this.errorLogger.error(text);
-    ctx.log.warn = (text) => this.warnLogger.warn(text);
-    ctx.log.debug = (text) => this.debugLogger.debug(text);
-    ctx.log.info = (text) => this.infoLogger.info(text);
+    ctx.log.date = (text: string) => this.logger.info(text);
+    ctx.log.console = (text: string) => this.consoleLogger.info(text);
+    ctx.log.error = (text: string) => this.errorLogger.error(text);
+    ctx.log.warn = (text: string) => this.warnLogger.warn(text);
+    ctx.log.debug = (text: string) => this.debugLogger.debug(text);
+    ctx.log.info = (text: string) => this.infoLogger.info(text);
     await next();
   }
 }
