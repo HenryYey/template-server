@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "start": "node bin/www",
+    "build": "tsc -p .",
     "prd": "pm2 start bin/www",
     "test": "cross-env NODE_ENV=test mocha -r test/*.spec.js",
     "lint": "eslint \"routes/**/*\" \"middlewares/**/*\" \"controllers/**/*\" ./app.js "
@@ -56,6 +57,8 @@
     "not ie <= 8"
   ],
   "devDependencies": {
+    "@types/koa-static-cache": "^5.1.0",
+    "@types/koa2-cors": "^2.0.1",
     "assert": "^2.0.0",
     "eslint": "^6.7.2",
     "supertest": "^4.0.2"
